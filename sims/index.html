@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>별과 우주 시뮬레이터</title>
+<meta name="description" content="문용권 T 의 중학교 과학 2 「별과 우주」 3D 시뮬레이터와 해설">
+<link rel="icon" href="../img/eclipse_s.jpg">
+<style>
+:root{
+  --sky:#04060c; --pearl:#efe9dc; --amber:#f2a33a; --slate:#8a93a3;
+  --line:rgba(239,233,220,.14); --red:#e8695a; --yel:#e9c548;
+  --body:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+}
+*{box-sizing:border-box}
+html{background:var(--sky)}
+body{margin:0;color:var(--pearl);font:17px/1.7 var(--body);background:var(--sky);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--amber);outline-offset:4px}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:26px 0}
+.mark{font-size:22px;font-weight:700;text-decoration:none}.mark span{color:var(--amber)}
+.back{color:var(--slate);font-size:15px}
+h1{font-size:clamp(44px,8vw,80px);line-height:1;margin:30px 0 14px;font-weight:800;letter-spacing:-.02em}
+.lead{color:#d9d3c6;max-width:36em;margin:0 0 40px}
+.game{border:1px solid var(--line);border-top:4px solid var(--amber);padding:26px 26px 30px;margin-bottom:24px}
+.game .tag{color:var(--amber);font-size:14px;letter-spacing:.12em}
+.game h2{font-size:clamp(28px,4vw,38px);margin:6px 0 8px;line-height:1.2}
+.game>p{margin:0 0 18px;color:#d9d3c6}
+.play{display:inline-block;background:var(--amber);color:var(--sky);font-weight:700;text-decoration:none;padding:12px 26px;margin-right:10px}
+.play:hover{filter:brightness(1.1)}
+.meta{color:var(--slate);font-size:15px}
+h3{font-size:22px;margin:38px 0 10px;padding-top:20px;border-top:1px solid var(--line)}
+h3 small{color:var(--slate);font-weight:400;font-size:15px;margin-left:6px}
+ol,ul{padding-left:1.4em;margin:0}li{margin:4px 0}
+.ctl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:6px 20px;margin:0}
+.ctl dt{color:var(--amber);font-weight:700}.ctl dd{margin:0}
+.rd{color:var(--red);font-weight:700}.yl{color:var(--yel);font-weight:700}
+.box{background:rgba(239,233,220,.05);border-left:3px solid var(--amber);padding:14px 18px;margin:14px 0}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:16px}
+th,td{border-bottom:1px solid var(--line);padding:9px 10px;text-align:center}
+th{color:var(--slate);font-weight:400;font-size:14px}
+td:first-child,th:first-child{text-align:left}
+details{border:1px solid var(--line);padding:14px 18px;margin-top:12px}
+summary{cursor:pointer;color:var(--amber);font-weight:700}
+.tbl{overflow-x:auto}
+footer{padding:60px 0 50px;color:var(--slate);font-size:13px}
+@media (max-width:600px){.ctl{grid-template-columns:1fr}.ctl dd{margin-bottom:8px}.game{padding:20px 18px 24px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="../">Moon<span>Clipse</span></a>
+    <a class="back" href="../">← 별과 우주 아카이브</a>
+  </header>
+
+  <h1>3D 시뮬레이터</h1>
+  <p class="lead">교과서 탐구를 화면 속에서 직접 해 보는 실험실입니다. 방법만 알려 주고, 조립부터 관찰과 기록까지 학생이 스스로 합니다.</p>
+
+  <article class="game" id="board">
+    <div class="tag">1. 별까지의 거리 · 탐구</div>
+    <h2>시차 측정 모형판</h2>
+    <p>교과서 탐구 「시차와 거리 관계 알아보기」를 3D 책상 위에서 혼자 해 보는 시뮬레이터입니다. 모형판을 세우는 것부터 구멍에 눈을 대고, 고개를 돌려 별을 찾고, 번호를 골라 붙임딱지를 붙이는 것까지 모두 학생이 직접 합니다.</p>
+    <a class="play" href="parallax-board.html">시뮬레이터 열기</a>
+    <span class="meta">태블릿·PC · 10~15분 · 혼자 또는 2명이 한 조</span>
+
+    <h3>하는 법 <small>조작</small></h3>
+    <dl class="ctl">
+      <dt>누르기</dt><dd>앞벽·뒷벽을 누르면 접혀 서고, 별을 누르면 서거나 눕습니다. 세운 앞벽의 <b>구멍 A·B</b> 를 누르면 그 구멍에 눈을 댑니다.</dd>
+      <dt>끌기</dt><dd>평소에는 판 전체를 돌려 봅니다. 구멍에 눈을 댄 동안에는 <b>눈(시선)</b> 을 돌립니다.</dd>
+      <dt>번호 누르기</dt><dd>구멍으로 볼 때 뒷벽 번호를 누르면 고른 색의 붙임딱지가 붙습니다. 다시 누르면 옮겨 붙습니다.</dd>
+      <dt>붙임딱지 색</dt><dd><span class="rd">빨간색</span> 은 별 S, <span class="yl">노란색</span> 은 별 T 에 씁니다. 어느 색을 쓸지는 직접 고릅니다.</dd>
+      <dt>눈 떼기</dt><dd>버튼이나 Esc 키를 누르면 구멍에서 눈을 떼고 판 전체를 다시 봅니다.</dd>
+    </dl>
+
+    <h3>진행 순서 <small>화면 왼쪽 「해 볼 일」</small></h3>
+    <ol>
+      <li>파란 판의 앞벽과 뒷벽을 눌러 세운다.</li>
+      <li>별 S 를 눌러 세운다.</li>
+      <li>구멍 A 에 눈을 대고, 별 S 위로 보이는 번호에 <span class="rd">빨간색</span> 붙임딱지를 붙인다.</li>
+      <li>눈을 떼고 구멍 B 로도 똑같이 한다.</li>
+      <li>별 S 를 눕히고 별 T 를 세워, <span class="yl">노란색</span> 붙임딱지로 구멍 A·B 를 한다.</li>
+      <li>기록표의 <b>확인</b>을 누른다. 맞은 칸은 ✓, 틀린 칸은 ✗ 가 붙는다. 네 장이 모두 맞으면 시선이 그려지고, 시차가 큰 별을 고르는 문제가 나온다.</li>
+    </ol>
+    <p class="meta">해 볼 일은 한 일만큼 저절로 체크됩니다. 순서를 바꿔도 되지만, 화면이 지금 할 일을 밝게 보여 줍니다.</p>
+
+    <h3>무엇을 배우나 <small>해설</small></h3>
+    <p><b>시차</b>는 관측하는 위치가 달라질 때 물체의 위치가 달라 보이는 정도입니다. 이 시뮬레이터에서 구멍 A 와 B 는 서로 6 cm 떨어진 <b>두 관측 위치</b>이고, 뒷벽 번호는 멀리 있는 <b>배경</b>입니다.</p>
+    <ul>
+      <li>같은 별이라도 구멍 A 로 볼 때와 B 로 볼 때 별 뒤에 보이는 번호가 다릅니다. 두 붙임딱지 사이 거리가 그 별의 <b>시차의 크기</b>를 나타냅니다.</li>
+      <li>별 S 는 구멍에서 8 cm, 별 T 는 18 cm 떨어져 있습니다. 가까운 별 S 의 붙임딱지가 훨씬 멀리 벌어집니다.</li>
+      <li>위에서 내려다보면 두 시선이 별에서 만나 이루는 각이 보입니다. 가까운 별일수록 이 각, 곧 시차가 큽니다.</li>
+    </ul>
+    <div class="box"><b>결론</b> — 물체까지의 거리가 가까울수록 시차가 크고, 멀수록 시차가 작다.<br>
+    <span class="meta">별에 적용하면: 지구가 공전 궤도의 양 끝(6개월 간격)에서 별을 보는 것이 구멍 A·B 에 해당합니다. 이때 생기는 시차의 1/2 이 <b>연주 시차</b>이고, 연주 시차가 클수록 가까운 별입니다.</span></div>
+
+    <details>
+      <summary>정답과 풀이 (교사용)</summary>
+      <div class="tbl"><table>
+        <tr><th></th><th>구멍 A</th><th>구멍 B</th><th>붙임딱지 사이 거리</th></tr>
+        <tr><td><span class="rd">●</span> 별 S (앞벽에서 8 cm)</td><td>16번</td><td>4번</td><td>12 cm</td></tr>
+        <tr><td><span class="yl">●</span> 별 T (앞벽에서 18 cm)</td><td>11번</td><td>9번</td><td>2 cm</td></tr>
+      </table></div>
+      <p>시차가 큰 별: <b>별 S</b>. 번호는 1 cm 간격이고 판 깊이는 24 cm 입니다. 구멍에서 별을 지나는 직선을 뒷벽까지 늘이면, 붙임딱지 사이 거리는 6 cm × (24 − 별까지 거리) ÷ 별까지 거리 가 됩니다. 별 S 는 6 × 16 ÷ 8 = 12 cm, 별 T 는 6 × 6 ÷ 18 = 2 cm 입니다.</p>
+      <p><b>자주 하는 실수</b></p>
+      <ul>
+        <li>구멍 A 로 고개를 돌리지 않고 정면만 봐서 별이 화면 끝에 걸린다 → 끌어서 시선을 별 쪽으로 돌리게 합니다.</li>
+        <li>별 T 를 볼 때 <span class="rd">빨간색</span> 을 그대로 쓴다 → 확인에서 ✗ 가 나옵니다. 색을 바꾸고 다시 붙이면 됩니다.</li>
+        <li>별 위가 아니라 별 옆의 번호를 고른다 → 별 꼭짓점에서 수직으로 위에 있는 번호를 읽게 합니다.</li>
+      </ul>
+    </details>
+
+    <h3>수업에서 쓰기</h3>
+    <ul>
+      <li>강의자료 1차시의 「탐구 (3D 실험)」 슬라이드는 교사가 한 단계씩 보여 주는 시연용이고, 이 시뮬레이터는 학생이 혼자 해 보는 판입니다. 시연 전에 먼저 해 보게 하거나, 실제 모형판 실험 뒤 확인용으로 씁니다.</li>
+      <li>「붙임딱지 모두 떼기」로 처음부터 다시 할 수 있습니다. 판을 처음 상태(벽이 누운 상태)로 되돌리려면 페이지를 새로 고칩니다.</li>
+      <li>인터넷 없이도 열리는 파일 하나짜리 페이지입니다.</li>
+    </ul>
+  </article>
+  <footer>MoonClipse · 문용권 T 가 만든 수업 자료입니다. 책상 나무 질감 Poly Haven (CC0).</footer>
+</div>
+</body>
+</html>
